@@ -2,11 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { storeToRefs } from 'pinia'
 
 import { useAuthStore } from '@/stores/auth'
-import getTokenFromLocalStorage from '@/utils/getTokenFromLocalStorage'
 
-import Login from '@/views/auth/Login.vue'
-import Registration from '@/views/auth/Registration.vue'
-import User from '@/views/User.vue'
+import { getTokenFromLocalStorage } from '@/utils'
+
+import { Login, Registration, User } from '@/views'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

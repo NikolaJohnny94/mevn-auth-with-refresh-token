@@ -14,13 +14,12 @@
 
   import { useAuthStore } from '@/stores/auth'
 
-  import LoadingSpinner from '@/components/LoadingSpinner.vue'
+  import { LoadingSpinner } from '@/components'
 
-  const authStore = useAuthStore()
   const router = useRouter()
+  const authStore = useAuthStore()
 
   const { getUser, getLoading, getLoggedUser } = authStore
-
   const { errorMessage } = storeToRefs(authStore)
 
   getLoggedUser()

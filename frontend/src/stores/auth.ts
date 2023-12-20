@@ -2,7 +2,8 @@ import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 import { AuthService } from '@/services/api/auth'
-import removeTokensFromLocalStorage from '@/utils/removeTokensFromLocalStorage'
+
+import { removeTokensFromLocalStorage } from '@/utils'
 
 import type { AxiosError } from 'axios'
 import type { User, RegistrationData, LoginData, ErrorResponse } from '@/types'
@@ -32,6 +33,7 @@ export const useAuthStore = defineStore('auth', () => {
       const { data } = await authService.registration(registrationData)
 
       if (data.success) {
+        loading.value = false
         registerSuccess.value = true
       }
     } catch (err: any) {
@@ -109,7 +111,7 @@ export const useAuthStore = defineStore('auth', () => {
       const { data } = await authService.logoutUser()
 
       if (data.success) {
-        loading.value = true
+        loading.value = false
         user.value = {} as User
 
         removeTokensFromLocalStorage()

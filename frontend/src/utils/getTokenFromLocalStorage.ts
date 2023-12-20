@@ -1,10 +1,8 @@
 type SelectedToken = 'token' | 'refreshToken'
 
-const getTokenFromLocalStorage = (
+export const getTokenFromLocalStorage = (
   selectedToken: SelectedToken
 ): string | null => {
   const token = localStorage.getItem(selectedToken)
   return token
 }
-
-export default getTokenFromLocalStorage

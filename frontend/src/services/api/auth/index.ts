@@ -1,6 +1,6 @@
 import api from '@/api'
 
-import getTokenFromLocalStorage from '@/utils/getTokenFromLocalStorage'
+import { getTokenFromLocalStorage } from '@/utils'
 
 import type { RegistrationData, LoginData } from '@/types'
 
@@ -8,7 +8,7 @@ export class AuthService {
   registration(registrationData: RegistrationData) {
     const { username, email, password } = registrationData
 
-    return api.post('/register', {
+    return api.post('/registration', {
       username,
       email,
       password,

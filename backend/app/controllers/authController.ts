@@ -28,17 +28,17 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
   )
 
   if (!user) {
-    res.status(400).json({
+    res.status(404).json({
       success: false,
-      message: `User with the login identifier ${loginIdentifier} doesn't exist!`,
+      message: `User with the username/email: ${loginIdentifier} doesn't exist!`,
     })
   } else {
     const checkPassword = await user?.checkPassword(password)
 
     if (!checkPassword) {
-      res.status(400).json({
+      res.status(404).json({
         success: false,
-        message: `User with the password ${password} doesn't exist!`,
+        message: "User with the provided password doesn't exist!",
       })
     } else {
       const accessToken = user?.generateToken()

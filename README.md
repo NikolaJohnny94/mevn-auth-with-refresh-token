@@ -1,4 +1,4 @@
-# <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" width="32px"> <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" width="32px"/> MEVN <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png" width="28px"/> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/nodejs_plain_logo_icon_146409.png" width="32px"/> Stack + TypeScript <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="32px"/> , Pinia <img src='https://pinia.vuejs.org/logo.svg' width='26px'> , JWT <img src='https://jwt.io/img/pic_logo.svg' width='26px'> and daisyUI authentification app with refresh token logic 🙌
+# <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" width="32px"> <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" width="32px"/> MEVN <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png" width="28px"/> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/nodejs_plain_logo_icon_146409.png" width="32px"/> Stack + TypeScript <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="32px"/> , Pinia <img src='https://pinia.vuejs.org/logo.svg' width='26px'>, VeeValidate <img src='https://raw.githubusercontent.com/logaretm/vee-validate/main/logo.png' width='32px'/>, Yup <img src='https://cdn.icon-icons.com/icons2/2000/PNG/512/cool_smiley_sunglasses_icon_123402.png' width='20px'> , JWT <img src='https://jwt.io/img/pic_logo.svg' width='26px'> and daisyUI authentification app with refresh token logic 🙌
 
 ### 💻 Stack: <br/>
 
@@ -10,12 +10,15 @@
 
 <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="20"/> [TypeScript](https://www.typescriptlang.org/)<br/>
 <img src="https://pinia.vuejs.org/logo.svg" width="20"/> [Pinia](https://pinia.vuejs.org/)<br/>
+<img src="https://raw.githubusercontent.com/logaretm/vee-validate/main/logo.png" width="26"/> [VeeValidate](https://vee-validate.logaretm.com/v4/)<br/>
+<img src='https://cdn.icon-icons.com/icons2/2000/PNG/512/cool_smiley_sunglasses_icon_123402.png' width='20px'> [Yup](https://www.npmjs.com/package/yup)
+<br/>
 <img src='https://cdn.icon-icons.com/icons2/3914/PNG/512/daisyui_logo_icon_249080.png' width='32px'>[daisyUI](https://daisyui.com/)<br/>
 <img src='https://jwt.io/img/pic_logo.svg' width='26px'> [JWT](https://jwt.io/)
 
 ## Description 📜
 
-### MEVN stack authentification app with refresh token logic that uses TypeScript for type checking, JWT for generating and verifying tokens, Pinia for state management and daisyUI for UI.🤗<br>
+### MEVN stack authentification app with refresh token logic that uses TypeScript for type checking, JWT for generating and verifying tokens, Pinia for state management, VeeValidate for handling forms, Yup as schema validation and daisyUI for UI.🤗<br>
 
 User have option to **register** new account and to **login** if account is registered successfully.<br>
 Upon every successfull **login**, user gets **refresh** and **access** token (_expires in 20 minutes_), that is stored in the **localStorage** and that is sent upon requests to the _protected routes_ ( **/logout** and **/me** ).<br> <br>
