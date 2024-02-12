@@ -5,7 +5,7 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <li v-if="$route.meta.hideRegistrationAndLoginSection">
+        <li v-if="$route?.meta.hideRegistrationAndLoginSection">
           <button @click="logout">Logout</button>
         </li>
         <template v-else>

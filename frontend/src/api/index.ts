@@ -25,8 +25,8 @@ api.interceptors.response.use(
     const initialRequest = error.config
 
     if (
-      error.response.status === 401 &&
-      error.response.data.message ===
+      error.response?.status === 401 &&
+      error.response.data?.message ===
         'User is not authorized to access this route! The access token expired!'
     ) {
       try {

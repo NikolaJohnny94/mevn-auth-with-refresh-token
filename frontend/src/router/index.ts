@@ -2,39 +2,42 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { storeToRefs } from 'pinia'
 
 import { useAuthStore } from '@/stores/auth'
-
 import { getTokenFromLocalStorage } from '@/utils'
 
 import { Login, Registration, User } from '@/views'
 
+import type { RouteLocation } from 'vue-router'
+
+export const routes = [
+  {
+    path: '/',
+    name: 'home',
+    redirect: (to: RouteLocation) => 'login',
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: Registration,
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: User,
+    meta: { requiresAuth: true, hideRegistrationAndLoginSection: true },
+  },
+]
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      redirect: (to) => 'login',
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login,
-    },
-    {
-      path: '/registration',
-      name: 'registration',
-      component: Registration,
-    },
-    {
-      path: '/user',
-      name: 'user',
-      component: User,
-      meta: { requiresAuth: true, hideRegistrationAndLoginSection: true },
-    },
-  ],
+  routes,
 })
 
-router.beforeEach((to, from, next) => {
+router?.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
 
   const { registerSuccess, loginSuccess, errorMessage } = storeToRefs(authStore)

@@ -2,6 +2,7 @@
   <h2 class="text-center text-3xl p-4">Login</h2>
   <form class="w-[300px] flex flex-col items-center m-auto" @submit="login">
     <input
+      id="loginIdentifier"
       type="text"
       placeholder="Enter your email or username"
       class="input input-bordered w-full max-w-xs m-3"
@@ -9,17 +10,23 @@
       v-bind="loginIdentifierAttrs"
     />
     <FormValidationError
-      v-if="errors.loginIdentifier"
-      :message="errors.loginIdentifier"
+      id="loginIdentifier-validation-error"
+      v-if="errors?.loginIdentifier"
+      :message="errors?.loginIdentifier"
     />
     <input
+      id="password"
       type="password"
       placeholder="Enter your password"
       class="input input-bordered w-full max-w-xs m-3"
       v-model="password"
       v-bind="passwordAttrs"
     />
-    <FormValidationError v-if="errors.password" :message="errors.password" />
+    <FormValidationError
+      id="password-validation-error"
+      v-if="errors?.password"
+      :message="errors?.password"
+    />
     <button type="submit" class="btn btn-neutral mt-3">Submit</button>
   </form>
 </template>

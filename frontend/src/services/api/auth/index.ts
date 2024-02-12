@@ -1,14 +1,16 @@
-import api from '@/api'
-
+import axios from 'axios'
+import apiInterceptors from '@/api'
 import { getTokenFromLocalStorage } from '@/utils'
 
 import type { RegistrationData, LoginData } from '@/types'
+
+const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL
 
 export class AuthService {
   registration(registrationData: RegistrationData) {
     const { username, email, password } = registrationData
 
-    return api.post('/registration', {
+    return axios.post(`${BASE_URL}/registration`, {
       username,
       email,
       password,
@@ -18,25 +20,31 @@ export class AuthService {
   login(loginData: LoginData) {
     const { loginIdentifier, password } = loginData
 
-    return api.post('/login', {
+    return axios.post(`${BASE_URL}/login`, {
       loginIdentifier,
       password,
     })
   }
 
   getUser() {
-    return api.get('/me', {
-      headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage('token')}`,
-      },
-    })
+    return (process.env.NODE_ENV === 'test' ? axios : apiInterceptors).get(
+      '/me',
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage('token')}`,
+        },
+      }
+    )
   }
 
   logoutUser() {
-    return api.post('/logout', {
-      headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage('token')}`,
-      },
-    })
+    return (process.env.NODE_ENV === 'test' ? axios : apiInterceptors).post(
+      `${BASE_URL}/logout`,
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage('token')}`,
+        },
+      }
+    )
   }
 }

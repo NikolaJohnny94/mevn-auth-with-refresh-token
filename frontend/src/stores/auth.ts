@@ -95,7 +95,7 @@ export const useAuthStore = defineStore('auth', () => {
 
       let error: AxiosError = err
 
-      if ((error.response?.data as ErrorResponse).message) {
+      if ((error.response?.data as ErrorResponse)?.message) {
         errorMessage.value = (error.response?.data as ErrorResponse).message
       } else {
         errorMessage.value = error.message
