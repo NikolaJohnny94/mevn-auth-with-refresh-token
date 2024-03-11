@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   getUser() {
-    return (process.env.NODE_ENV === 'test' ? axios : apiInterceptors).get(
+    return (import.meta.env.MODE === 'test' ? axios : apiInterceptors).get(
       '/me',
       {
         headers: {
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   logoutUser() {
-    return (process.env.NODE_ENV === 'test' ? axios : apiInterceptors).post(
+    return (import.meta.env.MODE === 'test' ? axios : apiInterceptors).post(
       `${BASE_URL}/logout`,
       {
         headers: {

@@ -1,4 +1,4 @@
-# <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" width="32px"> <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" width="32px"/> MEVN <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png" width="28px"/> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/nodejs_plain_logo_icon_146409.png" width="32px"/> Stack + TypeScript <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="32px"/> , Pinia <img src='https://pinia.vuejs.org/logo.svg' width='26px'>, VeeValidate <img src='https://raw.githubusercontent.com/logaretm/vee-validate/main/logo.png' width='32px'/>, Yup <img src='https://cdn.icon-icons.com/icons2/2000/PNG/512/cool_smiley_sunglasses_icon_123402.png' width='20px'> , JWT <img src='https://jwt.io/img/pic_logo.svg' width='26px'>, daisyUI and Vitest <img src='https://user-images.githubusercontent.com/11247099/145112184-a9ff6727-661c-439d-9ada-963124a281f7.png' width='32px'/> authentification app with refresh token logic 🙌
+# <img src='https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_docker_icon_130643.png' width='36px'/> Dockerized <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" width="32px"> <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" width="32px"/> MEVN <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png" width="28px"/> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/nodejs_plain_logo_icon_146409.png" width="32px"/> Stack + TypeScript <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="32px"/> , Pinia <img src='https://pinia.vuejs.org/logo.svg' width='26px'>, VeeValidate <img src='https://raw.githubusercontent.com/logaretm/vee-validate/main/logo.png' width='32px'/>, Yup <img src='https://cdn.icon-icons.com/icons2/2000/PNG/512/cool_smiley_sunglasses_icon_123402.png' width='20px'> , JWT <img src='https://jwt.io/img/pic_logo.svg' width='26px'>, daisyUI <img src='https://daisyui.com/images/daisyui-logo/daisyui-logomark-1024-1024.png' width='32px'/> and Vitest <img src='https://user-images.githubusercontent.com/11247099/145112184-a9ff6727-661c-439d-9ada-963124a281f7.png' width='32px'/> authentification app with refresh token logic 🙌
 
 ### 💻 Stack: <br/>
 
@@ -12,10 +12,12 @@
 <img src="https://pinia.vuejs.org/logo.svg" width="20"/> [Pinia](https://pinia.vuejs.org/)<br/>
 <img src="https://raw.githubusercontent.com/logaretm/vee-validate/main/logo.png" width="26"/> [VeeValidate](https://vee-validate.logaretm.com/v4/)<br/>
 <img src="https://user-images.githubusercontent.com/11247099/145112184-a9ff6727-661c-439d-9ada-963124a281f7.png" width="26"/> [Vitest](https://vitest.dev/)<br/>
+<img src='https://daisyui.com/images/daisyui-logo/daisyui-logomark-1024-1024.png' width='32px'>[daisyUI](https://daisyui.com/)<br/>
+<img src='https://jwt.io/img/pic_logo.svg' width='26px'> [JWT](https://jwt.io/)
+<br/>
 <img src='https://cdn.icon-icons.com/icons2/2000/PNG/512/cool_smiley_sunglasses_icon_123402.png' width='20px'> [Yup](https://www.npmjs.com/package/yup)
 <br/>
-<img src='https://cdn.icon-icons.com/icons2/3914/PNG/512/daisyui_logo_icon_249080.png' width='32px'>[daisyUI](https://daisyui.com/)<br/>
-<img src='https://jwt.io/img/pic_logo.svg' width='26px'> [JWT](https://jwt.io/)
+<img src='https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_docker_icon_130643.png' width='32px'> [Docker](https://www.docker.com/)
 
 ## Description 📑
 
@@ -76,14 +78,43 @@ If you change the API base url of a Back-End application (values of **BASE_URL**
 
 ## Run the dev server 👨‍💻
 
-Navigate to **backend** folder and run:
+### Navigate to **backend** folder and run:
 
 ```
 npm run dev
 ```
 
-Navigate to **frontend** folder and run:
+The **_backend_** will run on port **5000**
+
+### Navigate to **frontend** folder and run:
 
 ```
 npm run dev
 ```
+
+The **_frontend_** will run on port **3000**
+
+## Run the app with Docker 🐋
+
+In the **root** folder run the following command:
+
+```
+docker-compose up -d
+```
+
+The app will run in detachment mode and there are going to be created **3** containers for each **service**:
+
+- **_backend_** - running on port **_5000_**
+- **_frontend_** - running on port **_3000_**
+- **_mongodb_** - running on MongoDB port **_27017_**
+
+On the initial app run, test user is going to be inserted in the database via mongo-init file (**./backend/db/mongo-init/init.js file\_**)
+
+You can test the login page with credentials:
+
+- username: **_testuser123_** / email: **_testuser123@email.com_**
+- password: **_Testuser123\*_**
+
+## Note:
+
+Since **_backend_** service in this **_docker-compose.yaml_** file is depending on **mongodb** docker service, and in the **mongo-init** file we are initializing the test user in the **"mevn-auth-refresh-token"** database, the **_MONGO_URL_** value in the **_.env_** file should be the following: **mongodb://mongodb:27017/mevn-auth-refresh-token**
